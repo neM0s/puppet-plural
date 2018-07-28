@@ -4,12 +4,12 @@ node 'wiki' {
     content => inline_template("Created by puppet at <%= Time.now %>\n")
   }
   package { 'ntp':
-    ensure  =>  installed,
+    ensure  =>  'installed',
   }
 }
 
 node "wikitest" {
   package { 'ntp':
-    ensure  =>  installed,
+    ensure  =>  'installed',
   }
 }
