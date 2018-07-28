@@ -8,7 +8,7 @@ node 'wiki' {
   }
   service { 'ntpd':
     ensure  =>  'runnig',
-    enabled =>  true,
+    enable =>  true,
   }
 }
 
@@ -18,6 +18,6 @@ node "wikitest" {
   }
   service {'ntp':
     ensure  =>  'running',
-    enabled =>  true,
+    enable =>  true,
   }
 }
