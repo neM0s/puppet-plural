@@ -3,8 +3,13 @@ node 'wiki' {
     ensure  => 'present',
     content => inline_template("Created by puppet at <%= Time.now %>\n")
   }
+  package { 'ntp':
+    ensure  =>  installed,
+  }
 }
 
 node "wikitest" {
-
+  package { 'ntp':
+    ensure  =>  installed,
+  }
 }
