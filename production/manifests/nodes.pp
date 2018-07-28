@@ -7,7 +7,7 @@ node 'wiki' {
     ensure  =>  'installed',
   }
   service { 'ntpd':
-    ensure  =>  'runnig',
+    ensure  =>  'running',
     enable =>  true,
   }
 }
