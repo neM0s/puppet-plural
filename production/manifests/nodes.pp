@@ -1,24 +1,29 @@
 $ntpservice = $::osfamily ? {
+  "redhat" => "ntpd",
+  "debian" => "ntp",
+  default  => "ntp",
+}
+
 
 node 'wiki' {
   file {'/info.txt':
     ensure  => 'present',
     content => inline_template("Created by puppet at <%= Time.now %>\n")
   }
-  package { 'ntp':
+  package { $ntpservice:
     ensure  =>  'installed',
   }
-  service { 'ntpd':
+  service { $ntpservice:
     ensure  =>  'running',
     enable =>  true,
   }
 }
 
 node "wikitest" {
-  package { 'ntp':
+  package { $ntpservice:
     ensure  =>  'installed',
   }
-  service {'ntp':
+  service {$ntpservice:
     ensure  =>  'running',
     enable =>  true,
   }
