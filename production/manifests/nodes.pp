@@ -1,4 +1,11 @@
 class linux {
+  $admintool = ['nano', 'screen', 'vim']
+
+  package {$admintool:
+    ensure => installed,
+  }
+
+
   $ntpservice = $::osfamily ? {
     "redhat" => "ntpd",
     "debian" => "ntp",
