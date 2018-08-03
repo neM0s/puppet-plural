@@ -1,3 +1,5 @@
+$ntpservice = $::osfamily ? {
+
 node 'wiki' {
   file {'/info.txt':
     ensure  => 'present',
