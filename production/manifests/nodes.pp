@@ -4,7 +4,7 @@ class linux {
     "debian" => "ntp",
     default  => "ntp",
   }
-  package { $ntpservice:
+  package { "ntp":
     ensure  =>  'installed',
   }
   service { $ntpservice:
